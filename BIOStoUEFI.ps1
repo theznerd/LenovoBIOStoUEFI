@@ -44,7 +44,7 @@
     Author: Nathan Ziehnert
 
 .LINK
-    http://z-nerd.com/
+    http://z-nerd.com/2016/10/lenovo-bios-to-uefi-conversion-during-task-sequence-secureboot-and-virtualization-technology-too/
 #>
 [CmdletBinding()]
 param (
