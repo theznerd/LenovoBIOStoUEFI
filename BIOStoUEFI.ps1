@@ -7,7 +7,7 @@
 <#
 .SYNOPSIS
     Allows you to configure SecureBoot/UEFI settings, as well as Virtualization 
-	Technology and TPM for Credential Guard and Device Guard. This script is
+    Technology and TPM for Credential Guard and Device Guard. This script is
     designed to work on both ThinkPad and ThinkCentre machines.
 
 .DESCRIPTION
