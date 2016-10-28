@@ -72,7 +72,7 @@ if($manufacturer -ne "LENOVO"){
 
 ## Okay - Lenovo got close with their latest BIOS update... but no cigar...
 ## check to see if computer is a desktop or a laptop
-$PCTypeInt = (gwmi -Class Win32_ComptuerSystem -Property PCSystemType).PCSystemType
+$PCTypeInt = (gwmi -Class Win32_ComputerSystem -Property PCSystemType).PCSystemType
 $PCTypeStr = $null
 if($PCType -ne 2){
     $PCTypeStr = "Desktop"
