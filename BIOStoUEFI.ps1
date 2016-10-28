@@ -74,7 +74,7 @@ if($manufacturer -ne "LENOVO"){
 ## check to see if computer is a desktop or a laptop
 $PCTypeInt = (gwmi -Class Win32_ComputerSystem -Property PCSystemType).PCSystemType
 $PCTypeStr = $null
-if($PCType -ne 2){
+if($PCTypeInt -ne 2){
     $PCTypeStr = "Desktop"
     Write-Verbose "This is a Desktop PC"
 }else{
