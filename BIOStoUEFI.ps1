@@ -106,7 +106,7 @@ if($PCTypeInt -ne 2){
 
 ## Let's make sure we'll be able to make changes
 $BIOSWriteLocked = (gwmi -class Win32_ComputerSystem -Property AdminPasswordStatus).AdminPasswordStatus
-if(($BIOSWriteLocked -ne 0) -and (($biosPassword -eq $null) -or ($biosPassword -eq ""))){
+if(($BIOSWriteLocked -eq 1) -and (($biosPassword -eq $null) -or ($biosPassword -eq ""))){
     Write-Log "BIOS is write locked and you did not specify a password - you may specify a password with the -BIOSPassword switch"
     Write-Error -Category InvalidResult -Message "BIOS is write locked and you did not specify a password - you may specify a password with the -BIOSPassword switch" -ErrorId 0x00000003
     Exit 3
