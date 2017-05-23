@@ -166,7 +166,7 @@ if($CGDG -and (-not ($virtualization -or $vtd -or $tpmStatus))){
 # did the user want us to do anything with BIOS to UEFI?
 if($BTU){
     #first things first, if secure boot is already enabled, then skip
-    if(($secureboot -eq "SecureBoot,Disable") -or ($secureboot -eq "CurrentSetting : Secure Boot,Disabled;[Optional:Disabled,Enabled]")){
+    if(($secureboot -eq "SecureBoot,Disable") -or ($secureboot -eq "CurrentSetting : Secure Boot,Disabled;[Optional:Disabled,Enabled]") ($secureboot -eq "Secure Boot,Disabled;[Optional:Disabled,Enabled]")){
         Write-Verbose "Beginning SecureBoot configuration."
         Write-Log "Beginning SecureBoot configuration."
         
