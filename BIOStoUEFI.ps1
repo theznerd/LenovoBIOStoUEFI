@@ -2,7 +2,7 @@
 ## Lenovo BIOS to UEFI TS Converter with CG/DG Prep ##
 ## Written By: Nathan Ziehnert                      ##
 ## Website: http://z-nerd.com                       ##
-## Version: 0.3                                     ##
+## Version: 0.2                                     ##
 ######################################################
 <#
 .SYNOPSIS
@@ -225,7 +225,7 @@ if($BTU){
             Write-Log "TPM is already configured."
         }
                 
-        if(($virtualization -eq "VirtualizationTechnology,Disable") -or ($virtualization -eq "Intel(R) Virtualization Technology = Disabled;[Optional:Disabled = Enabled]")){
+        if(($virtualization -eq "VirtualizationTechnology,Disable") -or ($virtualization -eq "Intel(R) Virtualization Technology = Disabled;[Optional:Disabled = Enabled]") -or ($virtualization -eq "Intel(R) Virtualization Technology,Disabled;[Optional:Disabled,Enabled]")){
             Write-Verbose "Configuring Virtualization Technology"
             Write-Log "Configuring Virtualization Technology"
 
@@ -252,8 +252,11 @@ if($BTU){
             Write-Verbose "Virtualization technology is already enabled."
             Write-Log "Virtualization technology is already enabled."
         }
-
-        if(($vtd -eq "VTdFeature,Disable") -or ($vtd -eq "VT-d,Disabled;[Optional:Disabled,Enabled]")){
+		
+	#need to add it here too because if it's disabled, desktops adds a weird switch...
+	$vtd = (gwmi -class Lenovo_BiosSetting -namespace root\wmi | Where-Object {$_.CurrentSetting.split(",",[StringSplitOptions]::RemoveEmptyEntries) -eq $vtdNoun}).CurrentSetting
+        
+	if(($vtd -eq "VTdFeature,Disable") -or ($vtd -eq "VT-d,Disabled;[Optional:Disabled,Enabled]") -or ($vtd -eq "VT-d,Disabled;[Optional:Disabled,Enabled]")){
             Write-Verbose "Configuring VTdFeature"
             Write-Log "Configuring VTdFeature"
             # Prepare the BIOS string - only used if bios has password.
