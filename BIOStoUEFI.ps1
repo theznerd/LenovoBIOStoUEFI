@@ -185,7 +185,7 @@ if($BTU){
                 Exit 5
             }
         }else{
-            Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting(`"$commandString`")"
+            Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting(`"$commandString`")"
             Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings(`"$BIOSString`")"
         }
     }else{
