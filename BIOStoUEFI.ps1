@@ -2,7 +2,7 @@
 ## Lenovo BIOS to UEFI TS Converter with CG/DG Prep ##
 ## Written By: Nathan Ziehnert                      ##
 ## Website: http://z-nerd.com                       ##
-## Version: 0.3                                     ##
+## Version: 0.4                                     ##
 ######################################################
 <#
 .SYNOPSIS
