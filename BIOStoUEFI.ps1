@@ -177,7 +177,7 @@ if($BTU){
             $commandString = $sbNoun+","+$exVerb
         }
         if(-not $WhatIf){
-            $sbResult = (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("$commandString") #Set the SecureBoot setting
+            $sbResult = (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("$commandString") #Set the SecureBoot setting
             $sbSaveResult = (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings("$BIOSString") #Save the SecureBoot setting
             if(($sbResult.return -ne "Success") -or ($sbSaveResult.return -ne "Success")){
                 Write-Log "There was an error setting the SecureBoot configuration."
@@ -209,7 +209,7 @@ if($BTU){
             }
 
             if(-not $WhatIf){
-                $scResult = (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("$commandString") #Set the SecurityChip setting
+                $scResult = (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("$commandString") #Set the SecurityChip setting
                 $scSaveResult = (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings("$BIOSString") #Save the SecurityChip setting
                 if(($scResult.return -ne "Success") -or ($scSaveResult.return -ne "Success")){
                     Write-Log "There was an error setting the TPM configuration."
@@ -217,7 +217,7 @@ if($BTU){
                     Exit 6
                 }
             }else{
-                Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting(`"$commandString`")"
+                Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting(`"$commandString`")"
                 Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings(`"$BIOSString`")"
             }
         }else{
@@ -237,7 +237,7 @@ if($BTU){
             }
 
             if(-not $WhatIf){
-                $vtResult = (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("$commandString") #Set the VirtualizationTechnology setting
+                $vtResult = (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("$commandString") #Set the VirtualizationTechnology setting
                 $vtSaveResult = (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings("$BIOSString") #Save the VirtualizationTechnology setting
                 if(($vtResult.return -ne "Success") -or ($vtSaveResult.return -ne "Success")){
                     Write-Log "There was an error setting the Virtualization Technology configuration."
@@ -245,7 +245,7 @@ if($BTU){
                     Exit 7
                 }
             }else{
-                Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting(`"$commandString`")"
+                Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting(`"$commandString`")"
                 Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings(`"$BIOSString`")"
             }
         }else{
@@ -267,7 +267,7 @@ if($BTU){
             }
 
             if(-not $WhatIf){
-                $vtdResult = (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("$commandString") #Set the VTdFeature setting
+                $vtdResult = (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("$commandString") #Set the VTdFeature setting
                 $vtdSaveResult = (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings("$BIOSString") #Save the VTdFeature setting
                 if(($vtdResult.return -ne "Success") -or ($vtdSaveResult.return -ne "Success")){
                     Write-Log "There was an error setting the Virtualization Technology configuration."
@@ -275,7 +275,7 @@ if($BTU){
                     Exit 7
                 }
             }else{
-                Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting(`"$commandString`")"
+                Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting(`"$commandString`")"
                 Write-Verbose "WHAT IF: Running (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings(`"$BIOSString`")"
             }
         }else{
